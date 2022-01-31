@@ -1,0 +1,23 @@
+@import './conts';
+@import '../public/fonts/GothamPro/stylesheet.css';
+html,
+body {
+    padding: 0;
+    margin: 0;
+    font-family: 'Gotham Pro', sans-serif;
+    background: $bg;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+.container {
+    width: 1339px;
+    margin: 0 auto;
+}

@@ -1,0 +1,79 @@
+@import '../conts';
+.header {
+    background: $bg;
+    width: 100%;
+    height: 105px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.nav {
+    background: $block_bg;
+    width: 568px;
+    height: 76px;
+    border-radius: 11px;
+    padding: 0 44px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    a {
+        font-weight: 300;
+        font-size: 18px;
+        color: $link;
+        cursor: pointer;
+        height: 100%;
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    a:hover {
+        color: $link_h;
+    }
+    a.active {
+        font-weight: normal;
+        color: $link_h;
+    }
+    a.active::after {
+        content: '';
+        width: 130%;
+        height: 19px;
+        background: linear-gradient(181.14deg, #1A1D27 0.87%, #1C52DD 215.06%);
+        position: absolute;
+        bottom: 0;
+        border-bottom: 1px solid #00A3FF;
+    }
+}
+
+.btn {
+    width: 193px;
+    height: 58px;
+    background: linear-gradient(267.75deg, rgba(0, 163, 255, 0.3) -44%, rgba(28, 82, 221, 0.3) 99.69%);
+    box-shadow: 0px 0px 7px rgba(27, 84, 222, 0.35);
+    border-radius: 3px;
+    border: solid 1px;
+    border-image: linear-gradient(267.75deg, rgba(0, 163, 255, 1) -44%, rgba(28, 82, 221, 1) 99.69%);
+    border-image-slice: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: $text_color;
+    position: relative;
+    cursor: pointer;
+    &::after {
+        content: '+';
+        width: 22px;
+        height: 22px;
+        background: #E5E7EC;
+        box-shadow: 0px 0px 8px rgba(229, 231, 236, 0.25);
+        border-radius: 3px;
+        position: absolute;
+        left: -11px;
+        font-size: 13px;
+        color: #2B2B2B;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+}

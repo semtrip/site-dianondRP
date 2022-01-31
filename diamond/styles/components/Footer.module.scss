@@ -1,0 +1,73 @@
+@import '../conts';
+.footer {
+    width: 100%;
+    height: 165px;
+    background: $block_bg;
+    display: flex;
+    align-items: center;
+}
+
+.footer_block {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.links {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    div:last-child {
+        margin: 0;
+    }
+    div {
+        display: flex;
+        align-items: flex-start;
+        flex-direction: column;
+        justify-content: space-between;
+        margin-right: 58px;
+    }
+    span {
+        font-size: 16px;
+        color: $footer_span;
+        margin-bottom: 7px;
+    }
+    a {
+        font-weight: 300;
+        font-size: 14px;
+        color: $link;
+        margin-bottom: 9px;
+    }
+    a:hover {
+        color: $link_h;
+    }
+}
+
+.social {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    a {
+        margin-right: 22px;
+    }
+    .instagram {
+        width: 30px;
+        height: 30.17px;
+        background: url(../../public/img/ico/instagram.png) no-repeat center;
+    }
+    .discorde {
+        width: 30px;
+        height: 30px;
+        background: url(../../public/img/ico/discord.png) no-repeat center;
+    }
+    .twitter {
+        width: 30px;
+        height: 24.38px;
+        background: url(../../public/img/ico/twitter.png) no-repeat center;
+    }
+    .youtube {
+        width: 30px;
+        height: 30.17px;
+        background: url(../../public/img/ico/youtube.png) no-repeat center;
+    }
+}
