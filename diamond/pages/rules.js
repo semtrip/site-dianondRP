@@ -1,16 +1,15 @@
 import styles from '../styles/Home.module.scss'
 
 import Header from '../components/header.module'
+import Footer from '../components/footer.module'
 
 export default function Rules() {
   return (
-    <div className='container'>
-      <Header title='Rules'/>
-      <main className={styles.main}>
+    <>
+      <Header title='Donate'/>
+      <main>
       </main>
-
-      <footer className={styles.footer}>
-      </footer>
-    </div>
+      <Footer/>
+    </>
   )
 }

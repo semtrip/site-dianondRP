@@ -5,7 +5,11 @@ body {
     padding: 0;
     margin: 0;
     font-family: 'Gotham Pro', sans-serif;
-    background: $bg;
+    background: url(../public/img/bg.png), $bg;
+    background-repeat: no-repeat;
+    background-position: top;
+    width: 100%;
+    overflow-x: hidden;
 }
 
 a {
