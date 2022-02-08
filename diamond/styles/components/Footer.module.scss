@@ -72,3 +72,22 @@
         background: url(../../public/img/ico/youtube.png) no-repeat center;
     }
 }
+
+@media screen and (max-width: 900px) {
+    .footer {
+        min-height: 280px;
+    }
+    .footer_block {
+        flex-direction: column;
+        min-height: 220px;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .footer {
+        zoom: .8;
+    }
+    .links {
+        margin: 25px 0;
+    }
+}

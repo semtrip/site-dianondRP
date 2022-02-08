@@ -1,10 +1,12 @@
 import styles from '../styles/components/Header.module.scss'
 import Link from 'next/link'
 import {useRouter }from 'next/router'
+import {useState} from 'react'
 import Head from 'next/head'
 
 const Header = (props) => {
     const router = useRouter()
+    const [mobileMenu, setMobileMenu] = useState(false)
     const title = props.title
     return (
         <>
@@ -23,6 +25,16 @@ const Header = (props) => {
                         <Link href="/top"><a className={ router.pathname === '/top' ? styles.active :null}>Top</a></Link>
                     </div>
                     <div className={styles.btn}>Personal account</div>
+                    <div className={styles.mobile_nav_btn} onClick={()=> {setMobileMenu(!mobileMenu)}}/>
+                </div>
+                <div className={mobileMenu ? styles.mobile_nav_active :styles.mobile_nav}>
+                    <div className={styles.nav_mobile}>
+                        <Link href="/"><a className={ router.pathname === '/' ? styles.active :null} >Home</a></Link>
+                        <Link href="/donate"><a className={ router.pathname === '/donate' ? styles.active :null}>Donate</a></Link>
+                        <Link href="/rules"><a className={ router.pathname === '/rules' ? styles.active :null}>Rules</a></Link>
+                        <Link href="/top"><a className={ router.pathname === '/top' ? styles.active :null}>Top</a></Link>
+                    </div>
+                        <div className={styles.btn_mobile}/>
                 </div>
             </div>
             

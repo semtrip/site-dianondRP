@@ -6,7 +6,7 @@ import Footer from '../components/footer.module'
 export default function Rules() {
   return (
     <>
-      <Header title='Donate'/>
+      <Header title='Rules'/>
       <main>
       </main>
       <Footer/>

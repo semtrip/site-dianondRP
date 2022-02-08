@@ -1,7 +1,7 @@
 import '../styles/globals.scss'
 import '../styles/media.scss'
 
-function MyApp({ Component, pageProps, title }) {
+function MyApp({ Component, pageProps}) {
   return <Component {...pageProps} />
 }
 

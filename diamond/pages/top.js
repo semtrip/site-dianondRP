@@ -6,7 +6,7 @@ import Footer from '../components/footer.module'
 export default function Top() {
   return (
     <>
-      <Header title='Donate'/>
+      <Header title='Rating'/>
       <main>
       </main>
       <Footer/>

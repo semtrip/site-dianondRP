@@ -36,7 +36,7 @@ export default function Home() {
                     </div>
                   </a>
                   <a href="#about_us">
-                    <div className={styles.btn}>
+                    <div className={styles.btn} id='about_btn'>
                       <ico className={styles.screen}/>
                       Learn more about us
                     </div>
@@ -51,20 +51,20 @@ export default function Home() {
                 </div>
                 <div className={`${styles.item} ${styles.map}`}>
                   <div className={styles.text}>
-                    <span>Unique game mod</span>
-                    <span className={styles.white}>Created especially for you!</span>
+                    <span>Beautiful landscapes</span>
+                    <span className={styles.white}>Which you won`t find anywhere!!</span>
                   </div>
                 </div>
                 <div className={`${styles.item} ${styles.orden}`}>
                   <div className={styles.text}>
-                    <span>Unique game mod</span>
-                    <span className={styles.white}>Created especially for you!</span>
+                    <span>Interesting quest line</span>
+                    <span className={styles.white}>You can learn a lot of new things!</span>
                   </div>
                 </div>
                 <div className={`${styles.item} ${styles.stats}`}>
                   <div className={styles.text}>
-                    <span>Unique game mod</span>
-                    <span className={styles.white}>Created especially for you!</span>
+                    <span>Rapid career growth</span>
+                    <span className={styles.white}>Easy character leveling!</span>
                   </div>
                 </div>
               </div>
@@ -75,6 +75,7 @@ export default function Home() {
           </div>
           <div className="container">
           <div className={styles.about_us} id='about_us'>
+                <span className={styles.title}>About us</span>
                 <div className={styles.item}>
                   <span className={styles.number}>01</span>
                   <div className={styles.text}>
