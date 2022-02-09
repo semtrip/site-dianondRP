@@ -1,9 +1,0 @@
-{
-    "bd_connect": {
-        "MYSQL_HOST": "localhost",
-        "MYSQL_DATABASE": "diamond",
-        "MYSQL_USERNAME": "root",
-        "MYSQL_PASSWORD": "123323qwe",
-        "MYSQL_PORT": "3306"
-    }
-}

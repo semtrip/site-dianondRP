@@ -1,66 +1,5 @@
 @import './conts';
-.btn {
-    position: relative;
-    height: 59.3px;
-    left: 0px;
-    top: 0px;
-    background: $bg_btn;
-    border-radius: 2px;
-    padding: 0 25px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 18px;
-    color: $text_btn;
-    margin-right: 48px;
-    user-select: none;
-    cursor: pointer;
-    &:after {
-        content: '';
-        top: -.3rem;
-        left: -.35rem;
-        width: 104%;
-        height: 118%;
-        background: url(../public/img/border_btn.png) center no-repeat;
-        background-size: 100% 100%;
-        position: absolute;
-    }
-    &:hover {
-        background: linear-gradient(0deg, rgba(250, 250, 250, 0.2), rgba(250, 250, 250, 0.2)), linear-gradient(267.75deg, #00A3FF -44%, #1C52DD 99.69%);
-    }
-    &:active {
-        background: linear-gradient(267.75deg, #41527E -44%, #2960EC 99.69%);
-    }
-    ico {
-        margin-right: 28px;
-    }
-    ico.play {
-        width: 28px;
-        height: 28px;
-        background: url(../public/img/ico/play.png) no-repeat center;
-    }
-    ico.screen {
-        width: 28px;
-        height: 28px;
-        background: url(../public/img/ico/screen.png) no-repeat center;
-    }
-    ico.shop {
-        width: 28px;
-        height: 28px;
-        background: url(../public/img/ico/shop.png) no-repeat center;
-    }
-    ico.download {
-        width: 28px;
-        height: 28px;
-        background: url(../public/img/ico/download.png) no-repeat center;
-    }
-    ico.connect {
-        width: 28px;
-        height: 28px;
-        background: url(../public/img/ico/connect.png) no-repeat center;
-    }
-}
-
+@import './global.module.scss';
 .main {
     width: 100%;
     position: relative;
@@ -249,33 +188,6 @@
     }
     .item:last-child {
         margin: 0;
-    }
-}
-
-.title {
-    position: relative;
-    font-size: 30px;
-    color: $main_text_color;
-    padding: 17px;
-    background: url(../public/img/bg_title.png) top;
-    background-repeat: space;
-    &::after {
-        content: '';
-        position: absolute;
-        right: 0;
-        top: 0;
-        width: 33px;
-        height: 32px;
-        background: url(../public/img/title_right.png);
-    }
-    &::before {
-        content: '';
-        position: absolute;
-        left: 0;
-        bottom: 0;
-        width: 33px;
-        height: 32px;
-        background: url(../public/img/title_left.png);
     }
 }
 

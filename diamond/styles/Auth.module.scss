@@ -1,0 +1,34 @@
+@import './conts';
+@import './global.module.scss';
+.auth {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 60vh;
+    .inputs_box {
+        width: 581px;
+        margin-top: 80px;
+        .btn {
+            height: 68px;
+            margin: 0;
+        }
+    }
+    .switches {
+        margin-top: 18px;
+        margin-bottom: 30px;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        a {
+            width: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            font-size: 14px;
+            color: #49526E;
+        }
+    }
+}
