@@ -1,5 +1,5 @@
 const db = require('./../../lib/db')
-
+var bcrypt = require('bcrypt');
 
 exports.getAllUsers = (req, res) => {
 
@@ -13,11 +13,11 @@ exports.getAllUsers = (req, res) => {
 
 }
 exports.signin = (req, res) => {
-    db.query("SELECT `id`, `email`, `password` FROM `users` WHERE `email` = '" + req.body.email + "'", (error, rows, fields) => {
+    db.query("SELECT `id`, `login`, `password` FROM `accounts` WHERE `login` = '" + req.body.login + "'", (error, rows, fields) => {
         if(error) {
             response.status(400, error, res)
         } else if(rows.length <= 0) {
-            response.status(401, {message: `Пользователь с email - ${req.body.email} не найден. Пройдите регистрацию.`}, res)
+            response.status(401, {message: `Пользователь с login - ${req.body.login} не найден. Пройдите регистрацию.`}, res)
         } else {
             const row = JSON.parse(JSON.stringify(rows))
             row.map(rw => {

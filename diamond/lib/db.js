@@ -1,30 +1,22 @@
 import env from './../dbenv'
 
-const mysql = require("mysql2");
+import mysql from 'serverless-mysql'
 
-const connection = mysql.createConnection({
+export const db = mysql({
+  config: {
     host: env.MYSQL_HOST,
     database: env.MYSQL_DATABASE,
     user: env.MYSQL_USER,
-    password: env.MYSQL_PASSWORD
-  });
-
-
-  connection.connect((error) => {
-    if(error) {
-        return console.log('Ошибка подключения к БД!');
-    } else {
-        return console.log('Подлючение успешно!');
-    }
+    password: env.MYSQL_PASSWORD,
+  },
 })
 
-const sql = `SELECT * FROM users`;
- 
-connection.query(sql, function(err, results) {
-    if(err) console.log(err);
-    console.log(results);
-});
- 
-connection.end();
-
-module.exports = connection
+export async function sql_query(query_string,values = []) {
+  try {
+    const results = await db.query(query_string, values)
+    await db.end()
+    return results
+  } catch (e) {
+    throw Error(e.message)
+  }
+}
