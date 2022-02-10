@@ -18,7 +18,7 @@ export default function Home() {
   return (
     <>      
       <Header title='Home'/>
-        <main>
+        <>
           <div className="container">
           <div className={styles.main}>
               <img src="img/logo328.png" className={styles.logo} alt="diamond-gta5.com_logo" />
@@ -309,7 +309,7 @@ export default function Home() {
               </div>
             </div>  
           </div>
-        </main>
+        </>
       <Footer/>
     </> 
   )

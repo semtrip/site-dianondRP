@@ -20,3 +20,11 @@ export async function sql_query(query_string,values = []) {
     throw Error(e.message)
   }
 }
+exports.db  = mysql({
+    config: {
+      host: env.MYSQL_HOST,
+      database: env.MYSQL_DATABASE,
+      user: env.MYSQL_USER,
+      password: env.MYSQL_PASSWORD,
+    },
+  })

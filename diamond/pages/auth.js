@@ -1,62 +1,50 @@
 import Header from '../components/header.module'
 import Footer from '../components/footer.module'
 
+import { getCookie } from 'cookies-next';
+
+import { useRouter } from 'next/router';
+
 import Link from 'next/link';
 
 import styles from '../styles/Auth.module.scss'
-import {useState} from 'react';
-
-import fetchJson from './../lib/fetchJson'
-
+import {useState, useEffect} from 'react';
 
 
 
 export default function Auth() {
+    const router = useRouter();
     const [remember, setRemeber] = useState(false);
     const [error, setError] = useState('');
     const [login, setLogin] = useState('');
     const [password, setPassword] = useState('');
 
+    useEffect(() => {
+        if(getCookie('user') !== undefined) {
+            router.push({pathname: '/account'})
+        }
+      });
 
-    
-
-    async function signIn (body = {login: login, password: password}) {
-        console.log('fetch')
-        try {
-
-              await fetchJson('/api/users', {
-                method: 'GET',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(body),
-              })
-          } catch (error) {
-            if (error) {
-                console.log(error)
-            } else {
-              console.error('An unexpected error happened:', error)
-            }
-          }
+    const loginUser = async () => {
+        setError('')
         if (login.length > 0 && password.length > 0) {
-            console.log('fetch 2')
-            if (login.targen.value !== '' && password.target.value !== '') {
-                console.log('fetch 3')
-                try {
-                    await fetchJson('/api/users', {
-                        method: 'POST',
-                        headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify(body),
-                      })
-                  } catch (error) {
-                    if (error) {
-                        setError(error.data.message)
-                    } else {
-                      console.error('An unexpected error happened:', error)
-                    }
-                  }
+            const responce = await fetch("/api/auth", {
+                method: 'POST',
+                body: JSON.stringify({login, password}),
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            })
+            const data = await responce.json()
+            if (data.status === 401) {
+                setError(data.message)
+            } else if (data.status === 200) {
+                console.log(data.token)
+                router.push({pathname: '/account'})
             }
         }
-    }
 
+    }
     return (
         <>
         <Header title='Authorization'/>
@@ -66,11 +54,10 @@ export default function Auth() {
                 <div className={styles.inputs_box}>
                     <div className={styles.inputs}>
                         <div className={styles.input}>
-                            <input type="text" maxLength={100} placeholder='Enter your username...' onChange={()=>{setLogin.bind(this)}}/>
-                            {login !== '' ? login.targen.value :null}
+                            <input type="text" maxLength={100} placeholder='Enter your username...' onChange={(e) => setLogin(e.currentTarget.value)}/>
                         </div>
                         <div className={styles.input}>
-                            <input type="password" maxLength={100} placeholder='Enter the password...'  onChange={()=>{setPassword.bind(this)}}/>
+                            <input type="password" maxLength={100} placeholder='Enter the password...'  onChange={(e) => setPassword(e.currentTarget.value)}/>
                         </div>
                     </div>
                     <div className={styles.switches}>
@@ -80,7 +67,9 @@ export default function Auth() {
                             </div>
                             <Link rel="stylesheet" href="/"><a>Forgot your password?</a></Link>
                     </div>
-                    <div className={styles.btn} onClick={signIn}>Log in to your account</div>
+                    <div className={styles.btn} onClick={loginUser}>Log in to your account</div>
+                    <span className={styles.error}>{error}</span>
+                    
                 </div>
             </div>
         </div>

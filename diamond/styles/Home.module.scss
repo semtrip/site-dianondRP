@@ -314,6 +314,9 @@
 .news_project {
     width: 100%;
     padding-bottom: 64px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     .content {
         width: 100%;
         display: flex;
@@ -408,8 +411,11 @@
 .monitoring {
     width: 100%;
     padding-top: 72px;
-    padding-bottom: 169px;
+    padding-bottom: 333px;
     position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     &::after {
         content: '';
         width: 325px;
@@ -418,15 +424,6 @@
         position: absolute;
         top: -252px;
         right: 0;
-    }
-    &::before {
-        content: '';
-        width: 326px;
-        height: 631px;
-        background: url(../public/img/girl_one.png);
-        position: absolute;
-        left: 0;
-        bottom: 0;
     }
     .content {
         width: 100%;

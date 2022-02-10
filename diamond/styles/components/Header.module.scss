@@ -82,6 +82,57 @@
     }
 }
 
+.btn_islogin {
+    max-width: 350px;
+    height: 61px;
+    background: #242834;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 11px;
+    cursor: pointer;
+    &:before {
+        content: "+";
+        display: block;
+        width: 32px;
+        height: 32px;
+        background: linear-gradient(267.75deg, #00A3FF -44%, #1C52DD 99.69%);
+        border-radius: 2px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 19px;
+        color: #FFFFFF;
+    }
+    &::after {
+        content: '';
+        display: block;
+        height: 48.417198181152344px;
+        width: 49px;
+        background: url(../../public/img/ico/user.png) no-repeat center;
+    }
+    .text {
+        margin: 0 10px;
+        display: flex;
+        align-items: flex-end;
+        justify-content: space-between;
+        flex-direction: column;
+        font-weight: 7 00;
+        font-size: 16px;
+        color: $main_text_color;
+        text-transform: uppercase;
+        .coin {
+            font-weight: 300;
+            font-size: 15px;
+            color: $main_text_color;
+            b {
+                color: #3F4558;
+            }
+        }
+    }
+}
+
 .mobile_nav_btn {
     height: 30px;
     width: 30px;

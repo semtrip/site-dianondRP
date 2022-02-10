@@ -22,7 +22,7 @@ const Footer = (props) => {
                         </div>
                     </div>
                     <div className={styles.social}>
-                        <a href="" className={styles.instagram}></a><a href=""  className={styles.discorde}></a><a href=""  className={styles.twitter}></a><a href=""  className={styles.youtube}></a>
+                        <a href="" className={styles.instagram}></a><a href="https://discord.gg/diamond-gta5" target="_blank" rel="noreferrer"  className={styles.discorde}></a><a href=""  className={styles.twitter}></a><a href=""  className={styles.youtube}></a>
                     </div>
                 </div>
             </div>

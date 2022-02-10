@@ -31,4 +31,14 @@
             color: #49526E;
         }
     }
+    .error {
+        width: 100%;
+        height: 50px;
+        font-size: 14px;
+        color: red;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+    }
 }
