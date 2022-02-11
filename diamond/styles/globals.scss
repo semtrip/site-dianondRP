@@ -21,6 +21,16 @@ a {
     box-sizing: border-box;
 }
 
+main {
+    width: 100%;
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-direction: column;
+}
+
 .container {
     width: 1339px;
 }

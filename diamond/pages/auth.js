@@ -39,7 +39,6 @@ export default function Auth() {
             if (data.status === 401) {
                 setError(data.message)
             } else if (data.status === 200) {
-                console.log(data.token)
                 router.push({pathname: '/account'})
             }
         }

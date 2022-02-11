@@ -29,8 +29,13 @@ export default function handler(req, res) {
                     const token = jwt.sign(user, env.JWT_SECRET, {
                         expiresIn: env.JWT_EXPIRES_IN
                     })
-                    setCookies('user', login, { req, res, maxAge: 60 * 6 * 24 });
-                    res.status(200).send({ message: 'Login is complete', token, status: 200, user })
+                    mysql.db.query(
+                        'UPDATE accounts SET token=? WHERE id=?',
+                        [token, user.id]
+                    )
+                    setCookies('token', token, { req, res, maxAge: 50400 });
+                    setCookies('user', login, { req, res, maxAge: 50400 });
+                    res.status(200).send({ message: 'Login is complete', status: 200, user })
                 }
             }
         )

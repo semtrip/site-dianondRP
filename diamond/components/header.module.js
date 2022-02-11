@@ -5,11 +5,16 @@ import {useState, useEffect} from 'react'
 import Head from 'next/head'
 import { getCookie } from 'cookies-next';
 import mainStore from '../store/main.store';
+import accountStore from '../store/account.store'
 import { observer } from "mobx-react-lite";
 const Header = observer((props) => {
     const router = useRouter()
     const [mobileMenu, setMobileMenu] = useState(false)
     const title = props.title
+
+    const formatter = new Intl.NumberFormat('en-US', {
+        style: 'decimal'    
+      });
 
     useEffect(() => {
       });
@@ -35,7 +40,7 @@ const Header = observer((props) => {
                             <div className={styles.btn_islogin}>
                                 <div className={styles.text}>
                                     <span>{mainStore.userLogin}</span>
-                                    <span className={styles.coin}>110 300 <b>DC</b></span>
+                                    <span className={styles.coin}>{formatter.format(accountStore.account.donate_money)}<b>DC</b></span>
                                 </div>
                             </div>
                         </Link> 

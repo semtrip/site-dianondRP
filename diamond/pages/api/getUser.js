@@ -1,31 +1,39 @@
 const mysql = require('./../../lib/db')
 
-import  {setCookies} from 'cookies-next'
+import  {removeCookies} from 'cookies-next'
+
 
 
 export default function handler(req, res) {
-    const login = req.body.login
-    const password = req.body.password
-    const hash = createHash('sha256').update(password).digest('hex')
+    const login = req.body.user
         mysql.db.query(
             'SELECT * FROM accounts WHERE login = ?',
             [login],
-            async (error, results) => {
-                if (results.length < 1)
+            async (error, resultsAccount) => {
+                if (resultsAccount.length < 1) {
+                    removeCookies('user')
+                    removeCookies('token')
                     res.status(403).send({ message: 'There is no login in the melon database', status: 403})
-                else {
+                } else {
                     const user = {
-                        id: results[0].id,
-                        social: results[0].social,
-                        login: results[0].login,
-                        email: results[0].email,
-                        donate_money: results[0].donate_money
+                        id: resultsAccount[0].id,
+                        social: resultsAccount[0].social,
+                        login: resultsAccount[0].login,
+                        email: resultsAccount[0].email,
+                        donate_money: resultsAccount[0].donate_money
                     }
-                    const token = jwt.sign(user, env.JWT_SECRET, {
-                        expiresIn: env.JWT_EXPIRES_IN
-                    })
-                    setCookies('user', login, { req, res, maxAge: 60 * 6 * 24 });
-                    res.status(200).send({ message: 'Login is complete', token, status: 200, user })
+                    mysql.db.query(
+                        'SELECT * FROM users WHERE social = ?',
+                        [user.social], 
+                        async (error, resultsUsers) => {
+                            if (resultsUsers.length < 1) {
+                                res.status(200).send({ message: 'Login is complete', status: 200, user})
+                            } else {
+                                const character = resultsUsers
+                                res.status(200).send({ message: 'Login is complete', status: 200, user, character })
+                            }
+                        }
+                        )
                 }
             }
         )
