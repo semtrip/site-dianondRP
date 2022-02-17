@@ -2,8 +2,6 @@ const mysql = require('./../../lib/db')
 
 import  {removeCookies} from 'cookies-next'
 
-
-
 export default function handler(req, res) {
     const login = req.body.user
         mysql.db.query(
@@ -20,7 +18,7 @@ export default function handler(req, res) {
                         social: resultsAccount[0].social,
                         login: resultsAccount[0].login,
                         email: resultsAccount[0].email,
-                        donate_money: resultsAccount[0].donate_money
+                        donate_money: resultsAccount[0].donate_money,
                     }
                     mysql.db.query(
                         'SELECT * FROM users WHERE social = ?',
@@ -30,11 +28,11 @@ export default function handler(req, res) {
                                 res.status(200).send({ message: 'Login is complete', status: 200, user})
                             } else {
                                 const character = resultsUsers
-                                res.status(200).send({ message: 'Login is complete', status: 200, user, character })
+                                res.status(200).send({ message: 'Login is complete', status: 200, user, character })     
                             }
                         }
-                        )
+                    )
                 }
-            }
+            }   
         )
 }

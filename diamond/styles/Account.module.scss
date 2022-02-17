@@ -51,6 +51,18 @@
                 width: 161px;
                 background: url(../public/img/account/man_one.png) no-repeat center;
             }
+            &.active {
+                background: url(../public/img/account/bg_link.png), linear-gradient(180deg, #8A0D32 0%, #681428 100%) no-repeat center;
+                &::after {
+                    content: '';
+                    position: absolute;
+                    bottom: 0;
+                    right: -67px;
+                    width: 242px;
+                    height: 269px;
+                    background: url(../public/img/account/girl_one.png) no-repeat center;
+                }
+            }
             .name {
                 font-weight: 700;
                 font-size: 18px;
@@ -202,11 +214,55 @@
                     display: none;
                 }
             }
+            .info {
+                width: 100%;
+                span {
+                    width: 100%;
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                    font-weight: 300;
+                    font-size: 12px;
+                    color: $main_text_color;
+                    margin-bottom: 12px;
+                    &::before {
+                        display: none;
+                    }
+                    &:last-child {
+                        position: relative;
+                        margin: 0;
+                        margin-top: 11px;
+                        padding-left: 25px;
+                        &::before {
+                            content: '';
+                            display: block;
+                            left: 0;
+                            height: 12px;
+                            width: 16.5px;
+                            position: absolute;
+                            background: url(../public/img/account/ico/money.png);
+                        }
+                    }
+                }
+            }
         }
         .bussines {
             span {
                 &::before {
                     background: url(../public/img/account/ico/bussines.png);
+                }
+            }
+            .box {
+                position: relative;
+                &::before {
+                    content: '';
+                    display: block;
+                    top: 70px;
+                    left: 144px;
+                    height: 71.89946746826172px;
+                    width: 78px;
+                    position: absolute;
+                    background: url(../public/img/account/ico/bussines_card.png);
                 }
             }
         }
@@ -216,6 +272,20 @@
                     background: url(../public/img/account/ico/cash.png);
                 }
             }
+            .box {
+                position: relative;
+                &::before {
+                    content: '';
+                    display: block;
+                    bottom: 0;
+                    right: -37px;
+                    width: 156px;
+                    height: 205px;
+                    position: absolute;
+                    background: url(../public/img/account/man_two.png);
+                    pointer-events: none;
+                }
+            }
         }
         .warehouse {
             span {
@@ -223,11 +293,37 @@
                     background: url(../public/img/account/ico/warehouse.png);
                 }
             }
+            .box {
+                position: relative;
+                &::before {
+                    content: '';
+                    display: block;
+                    top: 44px;
+                    left: 141px;
+                    height: 83px;
+                    width: 83px;
+                    position: absolute;
+                    background: url(../public/img/account/ico/warehouse_card.png);
+                }
+            }
         }
         .house {
             span {
                 &::before {
                     background: url(../public/img/account/ico/house.png);
+                }
+            }
+            .box {
+                position: relative;
+                &::before {
+                    content: '';
+                    display: block;
+                    top: 38px;
+                    left: 140px;
+                    height: 78px;
+                    width: 85px;
+                    position: absolute;
+                    background: url(../public/img/account/ico/house_card.png);
                 }
             }
         }

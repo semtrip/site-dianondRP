@@ -6,5 +6,9 @@ class AccountStore {
     }
     account = []
     сharacter = []
+    business = []
+    cars = []
+    house = []
+    warehouse = []
 }
 export default new AccountStore()

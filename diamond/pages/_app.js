@@ -32,12 +32,32 @@ const MyApp = observer(({ Component, pageProps}) => {
             mainStore.userLogin = data.user.login
             if (data.character !== undefined) { {
               accountStore.сharacter = data.character
-              console.log('data.character',  data.character)
-              console.log('accountStore.сharacter',  accountStore.сharacter[1].id)
+              for (let index = 0; index < data.character.length; index++) {
+                  if (data.character[index].business_id > 0) {
+                    getBusiness(data.character[index].business_id)
+                  } else {
+                    accountStore.business.push(null)
+                  }         
+              }
             }
-          
         }
       }
+}
+const getBusiness = async (businessId) => {
+  const responce = await fetch("/api/getBusiness", {
+      method: 'POST',
+      body: JSON.stringify({businessId}),
+      headers: {
+          'Content-Type': 'application/json'
+      }
+  })
+    const data = await responce.json()
+    if (data.status === 403) {
+      return
+    } 
+    if (data.status === 200) {
+      accountStore.business.push(data.business)
+  }
 }
   return <Component {...pageProps} />
 })

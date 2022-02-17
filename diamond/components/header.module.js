@@ -34,6 +34,13 @@ const Header = observer((props) => {
                         <Link href="/donate"><a className={ router.pathname === '/donate' ? styles.active :null}>Donate</a></Link>
                         <Link href="/rules"><a className={ router.pathname === '/rules' ? styles.active :null}>Rules</a></Link>
                         <Link href="/top"><a className={ router.pathname === '/top' ? styles.active :null}>Top</a></Link>
+                        {
+                            mainStore.isLogin ?
+                            <>
+                                <Link href="/liders"><a className={ router.pathname === '/liders' ? styles.active :null}>Liders</a></Link>
+                                <Link href="/complaints"><a className={ router.pathname === '/complaints' ? styles.active :null}>Complaints</a></Link>
+                            </>:null
+                        }
                     </div> 
                     {   mainStore.isLogin ?
                         <Link href="/account">
